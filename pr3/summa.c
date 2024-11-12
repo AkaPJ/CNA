@@ -12,6 +12,8 @@
 int N;
 int myrank;
 
+
+//crea matriz random
 void init_matrix(double *matr, const int rows, const int cols) {
     srand((unsigned int)time(NULL) + myrank); // Semilla diferente por proceso
     for (int j = 0; j < rows; ++j) {
@@ -21,6 +23,7 @@ void init_matrix(double *matr, const int rows, const int cols) {
     }
 }
 
+//muestra la matriz por pantalla
 void print_matrix(const int rows, const int cols, const double *matr) {
     for (int j = 0; j < rows; ++j) {
         for (int i = 0; i < cols; ++i) {
@@ -30,6 +33,7 @@ void print_matrix(const int rows, const int cols, const double *matr) {
     }
 }
 
+//multiplicacion de matrices
 void matmul_naive(const int m, const int n, const int k, const double *A, const double *B, double *C) {
     for (int j = 0; j < m; ++j) {
         for (int i = 0; i < k; ++i) {
@@ -40,7 +44,7 @@ void matmul_naive(const int m, const int n, const int k, const double *A, const 
         }
     }
 }
-
+//multiplicacion de matrices con summa
 void SUMMA(MPI_Comm comm_cart, const int mb, const int nb, const int kb, double *A_loc, double *B_loc, double *C_loc) {
     int coords[2];
     MPI_Cart_coords(comm_cart, myrank, 2, coords);
@@ -77,7 +81,7 @@ void SUMMA(MPI_Comm comm_cart, const int mb, const int nb, const int kb, double 
     free(B_loc_save);
     free(C_loc_tmp);
 }
-
+//parsea los argumentos
 void parse_cmdline(int argc, char *argv[]) {
     if (argc != 2) {
         if (myrank == 0) {
@@ -87,7 +91,7 @@ void parse_cmdline(int argc, char *argv[]) {
     }
     N = atoi(argv[1]);
 }
-
+//main
 int main(int argc, char *argv[]) {
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
