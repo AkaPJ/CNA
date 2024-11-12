@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "ctimer.h"
 
 #define A(i,j) A[(i)*k+(j)]
 #define B(i,j) B[(i)*n+(j)]
 #define C(i,j) C[(i)*n+(j)]
-
+/*
 void ctimer(double *elapsed, double *ucpu, double *scpu) {
     // Implementación de la función ctimer
     // Esta función debe medir el tiempo transcurrido y el tiempo de CPU
 }
-
+*/
 void microkernel(int mc, int nc, int kc, double *Ac, double *Bc, double *Cc) {
     for (int j = 0; j < nc; j++) {
         for (int p = 0; p < kc; p++) {
