@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/UX425/OneDrive - UPV/Escriptori/GII/4t/CNA/pr1",
+      "program": "c:/Users/UX425/OneDrive - UPV/Escriptori/GII/4t/CNA/pr1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
