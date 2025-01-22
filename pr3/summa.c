@@ -31,6 +31,7 @@ void print_matrix(const int rows, const int cols, const double *matr) {
         }
         printf("\n");
     }
+    printf("\n\n\n");
 }
 
 //multiplicacion de matrices
@@ -123,6 +124,8 @@ int main(int argc, char *argv[]) {
 
     init_matrix(A_loc, mb, mb);
     init_matrix(B_loc, mb, mb);
+    print_matrix(N, N, A_loc);
+    print_matrix(N, N, B_loc);
 
     double tstart = MPI_Wtime();
     SUMMA(comm_cart, mb, mb, mb, A_loc, B_loc, C_loc);
